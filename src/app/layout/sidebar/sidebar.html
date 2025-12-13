@@ -1,0 +1,67 @@
+<div [ngClass]="{'w-20': !enUso(), 'w-75': enUso()}" class="h-full bg-slate-300 shadow-xl rounded-xl mr-7 p-3 relative">
+
+   <!-- Titulo -->
+   <div class="pb-4">
+
+      <a href="https://flowbite.com/" class="flex items-center space-x-2 rtl:space-x-reverse">
+         <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 w-6" alt="Flowbite Logo" />
+         @if (enUso()) {
+            <span class="self-center text-lg font-semibold whitespace-nowrap text-heading">Flowbite</span>
+         }
+      </a>
+
+   </div>
+
+   <!-- Abrir o Cerrar el sidebar -->
+   <button class="bg-slate-600 rounded-xl cursor-pointer absolute -right-3 top-10" (click)="enUso.set(!enUso())">
+
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+      </svg>
+
+   </button>
+
+
+   <!-- Menu -->
+   <div class="mt-9">
+
+      <ul class="flex-col font-medium flex gap-y-4">
+         <!-- Dashboard -->
+         <li>
+            <a [routerLink]="['/dashboard']" class="flex items-center rounded-xl transition duration-150 ease-in-out hover:bg-slate-600 hover:text-white hover:shadow-lg p-1 group">
+               <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M5 3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm14 18a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4ZM5 11a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H5Zm14 2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4Z"/>
+               </svg>
+               @if(enUso()){
+                  <span class="ml-3">Dashboard</span>
+               }
+            </a>
+         </li>
+         <!-- Productos -->
+         <li>
+            <a [routerLink]="['/producto']" class="flex items-center rounded-xl transition duration-150 ease-in-out hover:bg-slate-600 hover:text-white hover:shadow-lg p-1 group">
+               <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path fill="currentColor" fill-rule="evenodd" d="M12.2605 3.79368c-.281-.22353-.5975-.3898-.9173-.5062-.7024-.25567-1.49918-.30568-2.24095-.18661-1.15818.18592-2.51613.88193-2.97474 2.22764-.40442.04107-.77944.1442-1.12195.31017-.59942.29046-1.02697.73841-1.32274 1.22999C3.11436 7.81349 3 8.97014 3 9.78568c0 .89142.27124 1.65012.76053 2.21432H20.3218c.0101-.0125.0201-.0251.0301-.0379.4919-.6324.6411-1.4185.6479-2.12509.1233-1.32715-.3036-2.47-1.0971-3.27874-.6018-.6132-1.3829-1.00304-2.2193-1.15392-.431-1.19435-1.444-2.10209-2.8973-2.26254-.9135-.10087-1.819.19102-2.5256.65187ZM9 8c0-.55228.44772-1 1-1h.01c.5523 0 1 .44772 1 1s-.4477 1-1 1H10c-.55228 0-1-.44772-1-1Zm4 0c0-.55228.4477-1 1-1h.01c.5523 0 1 .44772 1 1s-.4477 1-1 1H14c-.5523 0-1-.44772-1-1Zm-7 2c0-.55228.44772-1 1-1h.01c.55228 0 1 .44772 1 1 0 .5523-.44772 1-1 1H7c-.55228 0-1-.4477-1-1Zm5 0c0-.55228.4477-1 1-1h.01c.5523 0 1 .44772 1 1 0 .5523-.4477 1-1 1H12c-.5523 0-1-.4477-1-1Zm5 0c0-.55228.4477-1 1-1h.01c.5523 0 1 .44772 1 1 0 .5523-.4477 1-1 1H17c-.5523 0-1-.4477-1-1Z" clip-rule="evenodd"/>
+                  <path fill="currentColor" d="M20.6134 14.6222c.1145-.3088-.1249-.6222-.4542-.6222H3.84086c-.32935 0-.56875.3134-.45429.6222.76918 2.0753 2.462 3.7423 4.59004 4.6741V20c0 .5523.44772 1 1 1h6.04679c.5523 0 1-.4477 1-1v-.7037c2.128-.9318 3.8209-2.5988 4.59-4.6741Z"/>
+               </svg>
+               @if (enUso()){
+                  <span class="ml-3">Productos</span>
+               }
+            </a>
+         </li>
+         <!-- Categorias -->
+         <li>
+            <a class="flex items-center rounded-xl transition duration-150 ease-in-out hover:bg-slate-600 hover:text-white hover:shadow-lg p-1 group">
+                  <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                     <path d="M12.013 6.175 7.006 9.369l5.007 3.194-5.007 3.193L2 12.545l5.006-3.193L2 6.175l5.006-3.194 5.007 3.194ZM6.981 17.806l5.006-3.193 5.006 3.193L11.987 21l-5.006-3.194Z"/>
+                     <path d="m12.013 12.545 5.006-3.194-5.006-3.176 4.98-3.194L22 6.175l-5.007 3.194L22 12.562l-5.007 3.194-4.98-3.211Z"/>
+                  </svg>
+                  @if (enUso()){
+                     <span class="ml-3">Categorias</span>
+                  }
+            </a>
+         </li>
+      </ul>
+
+   </div>
+</div>
