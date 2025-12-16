@@ -1,6 +1,24 @@
+<p class="text-2xl font-medium mb-4">Productos</p>
+
+<!-- Boton para abrir un modal -->
+<button 
+    class="cursor-pointer bg-blue-700 p-2 text-white font-medium rounded-xl shadow-md"
+    (click)="openModal()">
+    
+    Registrar Producto
+</button>
+
+
+<app-producto-guardar
+    [isOpen]="showModal"
+    title="Registrar Producto"
+    (closed)="showModal = false"
+    >
+
+</app-producto-guardar>
+
 @if (esMovile()){
     <app-producto-card></app-producto-card>
 }@else {
     <app-producto-tabla></app-producto-tabla>
 }
-

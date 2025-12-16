@@ -1,0 +1,58 @@
+@if (isOpen){
+    <div class="fixed inset-0 flex items-center justify-center bg-black/50">
+
+        <!-- Modal -->
+        <div class="bg-white rounded-xl shadow-lg w-96 p-6">
+
+            <!-- Titulo -->
+            <div class="flex  justify-between items-center mb-4">
+                <h2>{{ titulo }}</h2>
+                <button
+                    class="text-gray-500 hover:text-gray-700"
+                    (click)="closeModal()">
+                    x
+                </button>
+            </div>
+
+            <!-- body -->
+            <div>
+        
+                <form [formGroup]="formularioProducto">
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Nombre Producto</label>
+                        <input type="text" formControlName="nombreProducto" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Precio Compra</label>
+                        <input type="number" formControlName="precioCompra" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Precio Venta</label>
+                        <input type="number" formControlName="precioVenta" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Proveedor</label>
+                        <input type="text" formControlName="proveedor" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Stock</label>
+                        <input type="number" formControlName="stock" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+                    <div>
+                        <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Categoria</label>
+                        <input type="number" formControlName="idCategoria" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="" required />
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="mt-4">
+                <button class="p-2 bg-gray-300 rouded-xl hover:bg-gray-500">Cancelar Registro</button>
+                <button class="p-2 bg-blue-300 rouded-xl hover:bg-gray-500" (click)="guardarProducto()">Registrar Producto</button>
+            </div>
+        </div>
+
+    </div>
+}
