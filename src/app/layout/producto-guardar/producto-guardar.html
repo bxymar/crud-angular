@@ -49,8 +49,8 @@
             </div>
 
             <div class="mt-4">
-                <button class="p-2 bg-gray-300 rouded-xl hover:bg-gray-500">Cancelar Registro</button>
-                <button class="p-2 bg-blue-300 rouded-xl hover:bg-gray-500" (click)="guardarProducto()">Registrar Producto</button>
+                <button class="p-2 bg-gray-300 rouded-xl hover:bg-gray-500" (click)="closeModal()">Cancelar Registro</button>
+                <button class="p-2 bg-blue-300 rouded-xl hover:bg-gray-500" (click)="requerimiento()">{{modo === 'create' ? 'Guardar' : 'Actualizar'}}</button>
             </div>
         </div>
 

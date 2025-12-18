@@ -1,1 +1,42 @@
-<p>producto-tabla works!</p>
+<div class="overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Producto
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Precio Compra
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Stock
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Categoria
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(producto of listaProductos; track producto){
+                <tr>
+                    <td class="px-6 py-4">{{producto.idProducto}}</td>
+                    <td class="px-6 py-4">{{producto.nombreProducto}}</td>
+                    <td class="px-6 py-4">{{producto.precioCompra}}</td>
+                    <td class="px-6 py-4">{{producto.stock}}</td>
+                    <td class="px-6 py-4">{{producto.nombreCategoria}}</td>
+                    <td class="px-6 py-4">
+                        <button class="bg-yellow-400 p-2 rounded-xl font-medium cursor-pointer mr-3"
+                        (click)="editarProducto.emit(producto.idProducto)">Editar</button>
+                        <button class="bg-red-600 p-2 text-white rounded-xl font-medium cursor-pointer">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

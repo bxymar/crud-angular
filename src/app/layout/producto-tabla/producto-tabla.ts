@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductoListarDTO } from '../../core/interfaces/productoListarDTO.interface';
 
 @Component({
   selector: 'app-producto-tabla',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class ProductoTabla {
 
+  @Input() listaProductos: ProductoListarDTO[] = [];
+
+  // Enviar id del producto
+  @Output() editarProducto = new EventEmitter<number>();
 }

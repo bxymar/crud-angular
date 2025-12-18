@@ -11,14 +11,22 @@
 
 <app-producto-guardar
     [isOpen]="showModal"
-    title="Registrar Producto"
+    [title]="modo === 'create' ? 'Registrar Producto' : 'Editar Producto'"
+    [modo] = "modo"
+    [productoObtenido] = "productoObtenido"
     (closed)="showModal = false"
-    >
-
+    (productoCreado)="cargarProductos()"
+    (productoActualizado)="cargarProductos()"
+>
 </app-producto-guardar>
+
 
 @if (esMovile()){
     <app-producto-card></app-producto-card>
 }@else {
-    <app-producto-tabla></app-producto-tabla>
+    <app-producto-tabla
+    [listaProductos]="listaProductos"
+    >
+
+    </app-producto-tabla>
 }
