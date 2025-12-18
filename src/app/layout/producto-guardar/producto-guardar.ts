@@ -35,6 +35,18 @@ export class ProductoGuardar implements OnInit, OnChanges{
     this.closed.emit();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['modo']){
+      this.desabilitarCampos();
+    }
+    if (changes['productoObtenido'] && this.productoObtenido && this.modo === 'edit'){
+      this.configurarFormularioEdicion();
+    }
+    if (changes['modo'] && this.modo === 'create'){
+      this.vaciarFormulario()
+    }
+  }
+
   ngOnInit(): void {
     this.formularioProducto = this.construirFormulario.group({
       nombreProducto: ['', [Validators.required, Validators.min(3), Validators.max(50)]],
@@ -44,18 +56,6 @@ export class ProductoGuardar implements OnInit, OnChanges{
       stock: [0, Validators.required],
       idCategoria: [0, Validators.required]
     })
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['modo']){
-      this.desabilitarCampos();
-    }
-    if (changes['productoEditar'] && this.productoObtenido && this.modo === 'edit'){
-      this.configurarFormularioEdicion();
-    }
-    if (changes['modo'] && this.modo === 'create'){
-      this.vaciarFormulario()
-    }
   }
 
   private configurarFormularioEdicion(){
@@ -125,9 +125,9 @@ export class ProductoGuardar implements OnInit, OnChanges{
 
     const update: ProductoUpdateDTO = {
       idProducto: this.productoObtenido.idProducto,
-      nombreProducto: this.productoObtenido.nombreProducto,
-      precioVenta: this.productoObtenido.precioVenta,
-      proveedorProducto: this.productoObtenido.proveedor,
+      nombreProducto: this.formularioProducto.value.nombreProducto,
+      precioVenta: this.formularioProducto.value.precioVenta,
+      proveedorProducto: this.formularioProducto.value.proveedor,
     }
 
     this.productoServicio.actualizarProductoService(update.idProducto, update).subscribe({

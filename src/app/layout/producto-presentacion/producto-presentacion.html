@@ -12,8 +12,8 @@
 <app-producto-guardar
     [isOpen]="showModal"
     [title]="modo === 'create' ? 'Registrar Producto' : 'Editar Producto'"
-    [modo] = "modo"
-    [productoObtenido] = "productoObtenido"
+    [modo]="modo"
+    [productoObtenido]="productoObtenido"
     (closed)="showModal = false"
     (productoCreado)="cargarProductos()"
     (productoActualizado)="cargarProductos()"
@@ -26,7 +26,7 @@
 }@else {
     <app-producto-tabla
     [listaProductos]="listaProductos"
-    >
+    (editarProducto)="mandarProductoEncontrado($event)">
 
     </app-producto-tabla>
 }
